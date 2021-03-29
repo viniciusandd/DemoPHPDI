@@ -2,10 +2,8 @@
 
 namespace App;
 
-use PDO;
-
-class PostgresDatabase implements DatabaseInterface
-{
+class PDO
+{       
     private $pdo;
 
     public function __construct
@@ -20,12 +18,7 @@ class PostgresDatabase implements DatabaseInterface
         $this->pdo = new \PDO("pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$password");
     }
 
-    public function fetchAll(string $query) : array
-    {
-        return $this->pdo->query($query)->fetchAll();
-    }
-
-    public function getPDO() : PDO
+    public function getPDO() : \PDO
     {
         return $this->pdo;
     }

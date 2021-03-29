@@ -6,12 +6,13 @@ return [
     'db.name' => \DI\env('db_name', 'demophpdi'),
     'db.username' => \DI\env('db_username', 'postgres'),
     'db.password' => \DI\env('db_password', 'docker'),
-    \App\DatabaseInterface::class => \DI\create(\App\PostgresDatabase::class)->constructor(
+    \App\PDO::class => \DI\create()->constructor(
         \DI\get('db.host'),
         \DI\get('db.port'),
         \DI\get('db.name'),
         \DI\get('db.username'),
         \DI\get('db.password')
     ),
-    PDO::class => \DI\factory([\App\DatabaseInterface::class, 'getPDO'])
+    PDO::class => \DI\factory([\App\PDO::class, 'getPDO']),
+    \App\DatabaseInterface::class => \DI\create(\App\PostgresDatabase::class)->constructor(\DI\get(PDO::class))
 ];
