@@ -1,0 +1,13 @@
+{
+    "require": {
+        "php-di/php-di": "^6.0",
+        "doctrine/annotations": "^1.4",
+        "digitalnature/php-ref": "^1.3"
+    },
+    "autoload": {
+        "classmap": [
+            "src",
+            "vendor"
+        ]
+    }
+}
