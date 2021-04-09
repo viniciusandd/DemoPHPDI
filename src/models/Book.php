@@ -4,15 +4,37 @@ namespace App;
 
 class Book 
 {
-    private $database;
+    private $id;
+    private $name;
+    private $author;
 
-    public function __construct(DatabaseInterface $database)
+    public function getId()
     {
-        $this->database = $database;
+        return $this->id;
     }
 
-    public function findAll()
+    public function setId($id)
     {
-        return $this->database->fetchAll('select * from books');
+        $this->id = $id;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    public function setAuthor($author)
+    {
+        $this->author = $author;
     }
 }

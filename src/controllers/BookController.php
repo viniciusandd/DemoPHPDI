@@ -6,13 +6,14 @@ class BookController
 {
     private $book;
 
-    public function __construct(Book $book)
+    public function __construct(BookDatabase $book)
     {
         $this->book = $book;
     }
 
-    public function index()
+    public function view()
     {        
-        r($this->book->findAll());
+        $books = $this->book->findAll();
+        require 'src/views/books.php';
     }
 }
