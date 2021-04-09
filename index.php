@@ -5,7 +5,8 @@ session_start();
 require 'vendor/autoload.php';
 
 $mappedControllers = [
-    "books" => "\App\BookController"
+    "books" => "\App\BookController",    
+    "shopping_cart" => "\App\ShoppingCartController",    
 ];
 
 $explodedUrl = explode("/", $_GET['url']);
@@ -23,5 +24,6 @@ try {
 } catch (\Invoker\Exception\NotCallableException $notCallableException) {
     $container->call(['ErrorController', 'notFound']);
 } catch (Exception $exception) {
+    r($exception);
     $container->call(['ErrorController', 'unexpectedError']);
 }

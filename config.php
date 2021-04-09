@@ -14,5 +14,6 @@ return [
         \DI\get('db.password')
     ),
     PDO::class => \DI\factory([\App\PDO::class, 'getPDO']),
-    \App\DatabaseInterface::class => \DI\create(\App\PostgresDatabase::class)->constructor(\DI\get(PDO::class))
+    \App\DatabaseInterface::class => \DI\create(\App\PostgresDatabase::class)->constructor(\DI\get(PDO::class)),
+    \App\SessionInterface::class => \DI\create(\App\PhpSessionAdapter::class)
 ];
