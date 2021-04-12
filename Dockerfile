@@ -14,6 +14,8 @@ RUN curl -sS https://getcomposer.org/installer | php && \
     chmod +x composer.phar && \     
     mv composer.phar /usr/local/bin/composer
 
+ADD . /var/www/html/
+
 RUN composer install
 
 EXPOSE 80
